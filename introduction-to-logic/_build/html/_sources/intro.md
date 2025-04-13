@@ -1,11 +1,7 @@
-# Welcome to your Jupyter Book
+# Добро пожаловать на курс "Введение в логику"!
+Этот курс является вольным переводом курса [Introduction to logic](http://intrologic.stanford.edu/public/lessons.php), созданного Michael Genesereth.
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
-
-Check out the content pages bundled with this sample book to see more.
+Michael Genesereth — доцент кафедры компьютерных наук Стэнфордского университета. Он получил степень бакалавра наук по физике в Массачусетском технологическом институте (MIT) и степень Ph.D. по прикладной математике в Гарвардском университете. В настоящее время он является директором Logic Group в Стэнфорде, а также основателем и научным руководителем CodeX (Стэнфордского центра правовой информатики). Он наиболее известен своими исследованиями в области вычислительной логики и её многочисленных применений (включая General Game Playing — обобщённую игру). Майкл также является основателем и организатором Международного соревнования по General Game Playing.
 
 ```{tableofcontents}
 ```
