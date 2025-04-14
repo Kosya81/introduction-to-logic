@@ -22,4 +22,7 @@ for item in BUILD_DIR.iterdir():
     else:
         shutil.copy2(item, dest)
 
+# 4. Создание файла .nojekyll
+(DOCS_DIR / ".nojekyll").touch()
+
 print("✅ Книга собрана и скопирована в docs/")
