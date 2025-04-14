@@ -3,7 +3,7 @@ import shutil
 from pathlib import Path
 
 # Пути
-BUILD_DIR = Path("_build/html")
+BUILD_DIR = Path("introduction-to-logic/_build/html")
 DOCS_DIR = Path("docs")
 
 # 1. Сборка книги
