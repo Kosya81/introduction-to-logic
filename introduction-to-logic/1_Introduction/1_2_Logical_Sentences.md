@@ -19,7 +19,7 @@
 
 <div style="display: flex; justify-content: space-between; gap: 20px;">
 
-<table>
+<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
   <thead>
     <tr>
       <th></th>
@@ -60,7 +60,7 @@
   </tbody>
 </table>
 
-<table>
+<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
   <thead>
     <tr>
       <th></th>
