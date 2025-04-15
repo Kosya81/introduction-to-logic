@@ -5,6 +5,9 @@ title: Введение в логику
 author: Michael Genesereth
 logo: klingon.jpeg
 
+# Language settings
+language: ru
+
 # Theme options
 html_theme_options:
   extra_css_files:
