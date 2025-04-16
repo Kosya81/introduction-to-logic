@@ -6,3 +6,4 @@ root: intro
 chapters:
 - file: 1_Introduction/1_1_Introduction
 - file: 1_Introduction/1_2_Logical_Sentences
+- file: 1_Introduction/1_3_Logical_Entailment
