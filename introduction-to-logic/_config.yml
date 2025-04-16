@@ -8,6 +8,11 @@ logo: klingon.jpeg
 # Language settings
 language: ru
 
+sphinx:
+  config:
+    language: ru
+
+
 # Theme options
 html_theme_options:
   extra_css_files:
