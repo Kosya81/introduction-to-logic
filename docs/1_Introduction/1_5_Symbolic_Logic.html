@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ru" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1.5 Символическая логика &#8212; Введение в логику</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b0fa5eb9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=576a2c22"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=9bfe3ffa"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_Introduction/1_5_Symbolic_Logic';</script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="prev" title="1.4 Логические доказательства" href="1_4_Logical_Proofs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ru"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Перейти к основному содержанию</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/klingon.jpeg" class="logo__image only-light" alt="Введение в логику - Home"/>
+    <script>document.write(`<img src="../_static/klingon.jpeg" class="logo__image only-dark" alt="Введение в логику - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Поиск</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Добро пожаловать на курс «Введение в логику»!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_1_Introduction.html">1.1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_Logical_Sentences.html">1.2 Логические высказывания</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_Logical_Entailment.html">1.3 Логическое следование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_Logical_Proofs.html">1.4 Логические доказательства</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.5 Символическая логика</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Исходный репозиторий"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_Introduction/1_5_Symbolic_Logic.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Открыть вопрос"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Загрузите эту страницу">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/1_Introduction/1_5_Symbolic_Logic.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Скачать исходный файл"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Распечатать в PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Полноэкранный режим"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="светлая/темная" aria-label="светлая/темная" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1.5 Символическая логика</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>1.5 Символическая логика<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h1>
+<p>До сих пор мы иллюстрировали всё примерами на естественном языке. Хотя естественный язык хорошо работает во многих ситуациях, у него есть свои недостатки. Предложения на естественном языке могут быть сложными, двусмысленными, и неправильное понимание смысла предложения может привести к ошибкам в рассуждениях.</p>
+<p>В качестве примера двусмысленности представим, что я написал предложение: В комнате есть девочка с телескопом. Посмотрите на следующую иллюстрацию — она показывает два возможных значения этого предложения. Я говорю о девочке, которая находится в комнате, где есть телескоп? Или о девочке, которая находится в комнате и держит телескоп в руках?
+<img alt="girl_with_telescope.png" src="../_images/girl_with_telescope.png" /></p>
+<p>Подобные сложности и двусмысленности иногда могут быть забавными, если приводят к интерпретациям, которых автор вовсе не имел в виду. Ниже приведены примеры известных газетных заголовков, допускающих несколько толкований. Использование формального языка исключает подобные непреднамеренные двусмысленности (и, к счастью или к сожалению, избавляет нас от случайного юмора).</p>
+<blockquote>
+<div><p><strong>«Crowds Rushing to See Pope Trample 6 to Death<br />
+(Толпа спешит увидеть Папу. Шестеро затоптано насмерть.)
+Journal Star, Peoria, 1980»</strong></p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>«Scientists Grow Frog Eyes and Ears<br />
+(Ученые отрастили лягушачьи глаза и уши.)<br />
+The Daily Camera, Boulder, 2000»</strong></p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>«British Left Waffles On Falkland Islands<br />
+(Британцы колеблются по поводу Фолклендских островов или Британцы оставили вафли на Фолклендских островах)»</strong></p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>«Food Stamp Recipients Turn to Plastic<br />
+(Получатели продуктовых талонов переходят на пластик или Получатели продуктовых талонов превратились в пластик)
+The Miami Herald, 1991»</strong></p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>«Indian Ocean Talks<br />
+(Переговоры по поводу Индийского океана или Индийский океан говорит)
+The Plain Dealer, 1977»</strong></p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>«Fried Chicken Cooked in Microwave Wins Trip<br />
+(Жареная курица, приготовленная в микроволновке, выигрывает поездку. <em>Думаю, тут имеется ввиду автор рецепта</em>)
+The Oregonian, Portland, 1981»</strong></p>
+</div></blockquote>
+<p>В качестве примера ошибок, возникающих при рассуждениях с предложениями на естественном языке, рассмотрим следующие примеры. В первом из них мы используем транзитивность отношения «лучше» для вывода заключения о сравнительном качестве шампанского и содовой на основе сравнительного качества шампанского и пива, а также пива и содовой. Пока всё в порядке.</p>
+<p style="align: center; padding-left: 25%;">
+<i>
+Шампанское лучше пива.<br>
+Пиво лучше содовой.<br>
+Следовательно, шампанское лучше содовой.<br>
+</i>
+</p>
+<p>Это имеет смысл. Это пример общего правила о транзитивности отношения «лучше». Если x лучше y, а y лучше z, то x будет лучше z.</p>
+<p style="align: center; padding-left: 25%;">
+<i>
+x лучше y.<br>
+y лучше z.<br>
+Следовательно, x лучше z.<br>
+</i>
+</p>
+<p>Теперь рассмотрим, что происходит, когда мы применяем это правило в случае, показанном ниже. Плохой секс лучше, чем ничего. Ничего лучше, чем хороший секс. Следовательно, плохой секс лучше хорошего. Серьезно?<br />
+Тут используется игра слов в английском языке: Bad sex is better than nothing. Nothing is better than good sex. Therefore, bad sex is better than good sex.</p>
+<p>Форма аргумента такая же, как в предыдущем примере, но заключение выглядит несколько менее правдоподобным. Проблема в этом случае заключается в том, что использование слова «ничего» здесь синтаксически похоже на использование слова «пиво» в предыдущем примере, но в английском языке оно означает совершенно другое.</p>
+<p>Логика устраняет эти трудности с помощью использования формального языка для кодирования информации. Учитывая синтаксис и семантику этого формального языка, мы можем дать точное определение понятию логического заключения. Более того, мы можем установить точные правила вывода, которые приводят только к логическим заключениям.</p>
+<p>В этом отношении существует сильная аналогия между методами формальной логики и методами школьной алгебры. Чтобы проиллюстрировать эту аналогию, рассмотрим следующую задачу по алгебре.</p>
+<p style="align: center; padding-left: 25%;"><i>
+x - 3y = 0<br>
+x + y = 12<br>
+</i></p>
+<p>Используя методы алгебры, мы можем преобразовать эти выражения, чтобы решить задачу. Сначала вычтем второе уравнение из первого.</p>
+<p style="align: center; padding-left: 25%;"><i>
+x - 3y = 0<br>
+x + y = 12<br>
+________<br>
+-4y = -12
+</i></p>
+<p>Затем делим обе стороны полученного уравнения на -4, чтобы получить значение для y. Подставив это значение обратно в одно из предыдущих уравнений, мы получаем значение для x.</p>
+<p style="align: center; padding-left: 25%;"><i>
+x = 9<br>
+y = 3<br>
+</i></p>
+<p>Теперь рассмотрим следующую логическую задачу.</p>
+<p style="align: center; padding-left: 25%;"><i>
+Если Мэри любит Пэта, то Мэри любит Куинси. Если сейчас понедельник и идёт дождь, то Мэри любит либо Пэта, либо Куинси.
+</i></p>
+Вопрос: если сейчас понедельник и идёт дождь, любит ли Мэри Куинси?
+<p>Как и в случае с задачей по алгебре, первый шаг — это формализация. Пусть <code class="docutils literal notranslate"><span class="pre">p</span></code> обозначает утверждение «Мэри любит Пэта», <code class="docutils literal notranslate"><span class="pre">q</span></code> — «Мэри любит Куинси», <code class="docutils literal notranslate"><span class="pre">m</span></code> — «сейчас понедельник», а <code class="docutils literal notranslate"><span class="pre">r</span></code> — «идёт дождь».</p>
+<p>С этими обозначениями основную информацию из задачи можно выразить следующими логическими высказываниями:<br />
+Первое: <em>из <code class="docutils literal notranslate"><span class="pre">p</span></code> следует <code class="docutils literal notranslate"><span class="pre">q</span></code></em> — если Мэри любит Пэта, то она любит и Куинси.<br />
+Второе: <em>из <code class="docutils literal notranslate"><span class="pre">m</span></code> и <code class="docutils literal notranslate"><span class="pre">r</span></code> следует <code class="docutils literal notranslate"><span class="pre">p</span></code> или <code class="docutils literal notranslate"><span class="pre">q</span></code></em> — если сейчас понедельник и идёт дождь, то Мэри любит либо Пэта, либо Куинси.
+$<span class="math notranslate nohighlight">\(
+\begin{align*}
+p &amp;\Rightarrow q \\
+m \land r &amp;\Rightarrow p \lor q \\
+&amp; или \\
+'Мэри \,любит \,Пэта' &amp;\Rightarrow 'Мэри \,любит \,Куинси' \\
+'понедельник' \land 'дождь' &amp;\Rightarrow 'Мэри \,любит \,Пэта \lor 'Мэри \,любит \,Куинси' \\
+\end{align*}
+\)</span>$</p>
+<p>Как и в алгебре, формальная логика определяет операции, которые мы можем использовать для преобразования выражений. Операция, показанная ниже, является вариантом так называемой <em><a class="reference external" href="https://azbyka.ru/otechnik/Spravochniki/slovar-po-logike/162">логики высказываний</a></em> (Propositional Resolution). Выражения над чертой являются посылками (premises) правила, а выражение под чертой — заключением (conclusion).
+$<span class="math notranslate nohighlight">\(
+\begin{align*}
+p_1 \land \dots \land p_k &amp;\Rightarrow q_1 \lor \dots \lor q_l \\
+r_1 \land \dots \land r_m &amp;\Rightarrow s_1 \lor \dots \lor s_n \\
+\hline
+p_1 \land \dots \land p_k \land r_1 \land \dots \land r_m &amp;\Rightarrow q_1 \lor \dots \lor q_l \lor s_1 \lor \dots \lor s_n
+\end{align*}
+\)</span>$
+Существует два уточнения этой операции.<br />
+(1) Если высказывание в левой части одного предложения совпадает с высказыванием в правой части другого, эти два символа можно опустить, при этом допускается удаление только одной такой пары.<br />
+(2) Если какая-либо переменная повторяется на одной и той же стороне одного предложения, все её вхождения, кроме одного, можно удалить.</p>
+<p>Мы можем использовать эту операцию для решения задачи о любовной жизни Мэри. Посмотрев на два приведённых выше утверждения, мы замечаем, что <code class="docutils literal notranslate"><span class="pre">p</span></code> встречается слева в одном предложении и справа — в другом. Следовательно, мы можем исключить <code class="docutils literal notranslate"><span class="pre">p</span></code> и тем самым получить вывод: если понедельник и идёт дождь, то Мэри любит Куинси или Мэри любит Куинси.
+$<span class="math notranslate nohighlight">\(
+\begin{aligned}
+p &amp;\Rightarrow q \\
+m \land r &amp;\Rightarrow p \lor q \\
+\hline
+m \land r &amp;\Rightarrow q \lor q
+\end{aligned}
+\)</span><span class="math notranslate nohighlight">\(
+Отбросив повторяющийся символ в правой части, мы приходим к заключению: если понедельник и идёт дождь, то Мэри любит Куинси.
+\)</span><span class="math notranslate nohighlight">\(
+\begin{aligned}
+m \land r &amp;\Rightarrow q \lor q \\
+\hline
+m \land r &amp;\Rightarrow q
+\end{aligned}
+\)</span>$
+Этот пример интересен тем, что демонстрирует наш формальный язык для кодирования логической информации. Как и в алгебре, мы используем символы для представления релевантных аспектов рассматриваемого мира и операторы для связи этих символов с целью выражения информации о вещах, которые они представляют.</p>
+<p>Пример также вводит одну из самых важных операций в формальной логике — резолюцию (в данном случае — ограниченную форму резолюции). Резолюция обладает свойством полноты для важного класса логических задач, то есть она является единственной необходимой операцией для решения любой задачи в этом классе.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./1_Introduction"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_4_Logical_Proofs.html"
+       title="предыдущая страница">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">назад</p>
+        <p class="prev-next-title">1.4 Логические доказательства</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Автор: Michael Genesereth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Копирайт 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
