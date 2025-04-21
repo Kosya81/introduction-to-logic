@@ -465,46 +465,50 @@ y = 3<br>
 <p>Как и в случае с задачей по алгебре, первый шаг — это формализация. Пусть <code class="docutils literal notranslate"><span class="pre">p</span></code> обозначает утверждение «Мэри любит Пэта», <code class="docutils literal notranslate"><span class="pre">q</span></code> — «Мэри любит Куинси», <code class="docutils literal notranslate"><span class="pre">m</span></code> — «сейчас понедельник», а <code class="docutils literal notranslate"><span class="pre">r</span></code> — «идёт дождь».</p>
 <p>С этими обозначениями основную информацию из задачи можно выразить следующими логическими высказываниями:<br />
 Первое: <em>из <code class="docutils literal notranslate"><span class="pre">p</span></code> следует <code class="docutils literal notranslate"><span class="pre">q</span></code></em> — если Мэри любит Пэта, то она любит и Куинси.<br />
-Второе: <em>из <code class="docutils literal notranslate"><span class="pre">m</span></code> и <code class="docutils literal notranslate"><span class="pre">r</span></code> следует <code class="docutils literal notranslate"><span class="pre">p</span></code> или <code class="docutils literal notranslate"><span class="pre">q</span></code></em> — если сейчас понедельник и идёт дождь, то Мэри любит либо Пэта, либо Куинси.
-$<span class="math notranslate nohighlight">\(
+Второе: <em>из <code class="docutils literal notranslate"><span class="pre">m</span></code> и <code class="docutils literal notranslate"><span class="pre">r</span></code> следует <code class="docutils literal notranslate"><span class="pre">p</span></code> или <code class="docutils literal notranslate"><span class="pre">q</span></code></em> — если сейчас понедельник и идёт дождь, то Мэри любит либо Пэта, либо Куинси.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align*}
 p &amp;\Rightarrow q \\
 m \land r &amp;\Rightarrow p \lor q \\
 &amp; или \\
 'Мэри \,любит \,Пэта' &amp;\Rightarrow 'Мэри \,любит \,Куинси' \\
-'понедельник' \land 'дождь' &amp;\Rightarrow 'Мэри \,любит \,Пэта \lor 'Мэри \,любит \,Куинси' \\
+'понедельник' \land 'дождь' &amp;\Rightarrow 'Мэри \,любит \,Пэта' \lor 'Мэри \,любит \,Куинси' \\
 \end{align*}
-\)</span>$</p>
-<p>Как и в алгебре, формальная логика определяет операции, которые мы можем использовать для преобразования выражений. Операция, показанная ниже, является вариантом так называемой <em><a class="reference external" href="https://azbyka.ru/otechnik/Spravochniki/slovar-po-logike/162">логики высказываний</a></em> (Propositional Resolution). Выражения над чертой являются посылками (premises) правила, а выражение под чертой — заключением (conclusion).
-$<span class="math notranslate nohighlight">\(
+\end{split}\]</div>
+<p>Как и в алгебре, формальная логика определяет операции, которые мы можем использовать для преобразования выражений. Операция, показанная ниже, является вариантом так называемой <em><a class="reference external" href="https://azbyka.ru/otechnik/Spravochniki/slovar-po-logike/162">логики высказываний</a></em> (Propositional Resolution). Выражения над чертой являются посылками (premises) правила, а выражение под чертой — заключением (conclusion).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align*}
 p_1 \land \dots \land p_k &amp;\Rightarrow q_1 \lor \dots \lor q_l \\
 r_1 \land \dots \land r_m &amp;\Rightarrow s_1 \lor \dots \lor s_n \\
 \hline
 p_1 \land \dots \land p_k \land r_1 \land \dots \land r_m &amp;\Rightarrow q_1 \lor \dots \lor q_l \lor s_1 \lor \dots \lor s_n
 \end{align*}
-\)</span>$
-Существует два уточнения этой операции.<br />
+\end{split}\]</div>
+<p>Существует два уточнения этой операции.<br />
 (1) Если высказывание в левой части одного предложения совпадает с высказыванием в правой части другого, эти два символа можно опустить, при этом допускается удаление только одной такой пары.<br />
 (2) Если какая-либо переменная повторяется на одной и той же стороне одного предложения, все её вхождения, кроме одного, можно удалить.</p>
-<p>Мы можем использовать эту операцию для решения задачи о любовной жизни Мэри. Посмотрев на два приведённых выше утверждения, мы замечаем, что <code class="docutils literal notranslate"><span class="pre">p</span></code> встречается слева в одном предложении и справа — в другом. Следовательно, мы можем исключить <code class="docutils literal notranslate"><span class="pre">p</span></code> и тем самым получить вывод: если понедельник и идёт дождь, то Мэри любит Куинси или Мэри любит Куинси.
-$<span class="math notranslate nohighlight">\(
+<p>Мы можем использовать эту операцию для решения задачи о любовной жизни Мэри. Посмотрев на два приведённых выше утверждения, мы замечаем, что <code class="docutils literal notranslate"><span class="pre">p</span></code> встречается слева в одном предложении и справа — в другом. Следовательно, мы можем исключить <code class="docutils literal notranslate"><span class="pre">p</span></code> и тем самым получить вывод: если понедельник и идёт дождь, то Мэри любит Куинси или Мэри любит Куинси.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
 p &amp;\Rightarrow q \\
 m \land r &amp;\Rightarrow p \lor q \\
 \hline
 m \land r &amp;\Rightarrow q \lor q
 \end{aligned}
-\)</span><span class="math notranslate nohighlight">\(
-Отбросив повторяющийся символ в правой части, мы приходим к заключению: если понедельник и идёт дождь, то Мэри любит Куинси.
-\)</span><span class="math notranslate nohighlight">\(
+\end{split}\]</div>
+<p>Отбросив повторяющийся символ в правой части, мы приходим к заключению: если понедельник и идёт дождь, то Мэри любит Куинси.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
 m \land r &amp;\Rightarrow q \lor q \\
 \hline
 m \land r &amp;\Rightarrow q
 \end{aligned}
-\)</span>$
-Этот пример интересен тем, что демонстрирует наш формальный язык для кодирования логической информации. Как и в алгебре, мы используем символы для представления релевантных аспектов рассматриваемого мира и операторы для связи этих символов с целью выражения информации о вещах, которые они представляют.</p>
+\end{split}\]</div>
+<p>Этот пример интересен тем, что демонстрирует наш формальный язык для кодирования логической информации. Как и в алгебре, мы используем символы для представления релевантных аспектов рассматриваемого мира и операторы для связи этих символов с целью выражения информации о вещах, которые они представляют.</p>
 <p>Пример также вводит одну из самых важных операций в формальной логике — резолюцию (в данном случае — ограниченную форму резолюции). Резолюция обладает свойством полноты для важного класса логических задач, то есть она является единственной необходимой операцией для решения любой задачи в этом классе.</p>
 </section>
 
