@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.1 Введение &#8212; Введение в логику</title>
+    <title>Упражнения к главе 1 &#8212; Введение в логику</title>
   
   
   
@@ -59,11 +59,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '1_Introduction/1_1_Introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_Introduction/1_Exercises';</script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="1.2 Логические высказывания" href="1_2_Logical_Sentences.html" />
-    <link rel="prev" title="Добро пожаловать на курс «Введение в логику»!" href="../intro.html" />
+    <link rel="next" title="jupytext: formats: «ipynb,md» kernelspec: name: python3 display_name: Python 3" href="Ex_1_1_Evaluation.html" />
+    <link rel="prev" title="1.7 Руководство по чтению" href="1_7_Reading_Guide.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ru"/>
   </head>
@@ -182,14 +182,14 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_Introduction.html">1.1 Введение</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_2_Logical_Sentences.html">1.2 Логические высказывания</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_3_Logical_Entailment.html">1.3 Логическое следование</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_4_Logical_Proofs.html">1.4 Логические доказательства</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_5_Symbolic_Logic.html">1.5 Символическая логика</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_6_Automation.html">1.6 Автоматизация</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_7_Reading_Guide.html">1.7 Руководство по чтению</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_Exercises.html">Упражнения к главе 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Упражнения к главе 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ex_1_1_Evaluation.html">jupytext:
 formats: «ipynb,md»
 kernelspec:
@@ -267,7 +267,7 @@ display_name: Python 3</a></li>
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_Introduction/1_1_Introduction.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_Introduction/1_Exercises.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Открыть вопрос"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -297,7 +297,7 @@ display_name: Python 3</a></li>
       
       
       
-      <li><a href="../_sources/1_Introduction/1_1_Introduction.md" target="_blank"
+      <li><a href="../_sources/1_Introduction/1_Exercises.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Скачать исходный файл"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -379,7 +379,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1.1 Введение</h1>
+    <h1>Упражнения к главе 1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -394,21 +394,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>1.1 Введение<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h1>
-<p>Гермиона Грейнджер была права, когда, проходя испытание зельеварения в «Гарри Поттере», сказала:
-«Это не магия — это логика. Логическая задача. Между прочим, многие величайшие волшебники были не в ладах с логикой, и, попади они сюда, они остались бы здесь навечно.».</p>
-<p>В реальном мире у нас дела обстоят лучше. Мы используем логику практически во всём, что делаем. Мы применяем её в профессиональной жизни — при доказательстве математических теорем, отладке компьютерных программ, медицинской диагностике и юридических рассуждениях. И мы используем её в личной жизни — решая головоломки, играя в игры и выполняя школьные задания — не только по математике, но и по истории, английскому языку и другим предметам.</p>
-<p>Однако само по себе использование логики не означает, что мы умеем хорошо ей пользоваться. Чтобы мыслить правильно и эффективно, нужно учиться логике — так же, как хорошему письму учатся на уроках английского языка и сочинения. Без специального обучения мы, скорее всего, будем неуверенны в своих выводах, склонны к ошибкам и легко поддадимся обману.</p>
-<p>Древние греки считали логику столь важной, что включили её в число трёх основных предметов образования (Trivium), наряду с грамматикой и риторикой. Удивительно, но в современной школьной программе логике уделяется небольшое внимание. В школах есть курсы по естественным наукам и различным разделам математики, но лишь немногие средние школы предлагают курсы по логике, и она не является обязательной в большинстве университетских программ.</p>
-<p>С учётом важности логики — это поразительно. Интегралы важны для физики — и их преподают в старших классах. Логика важна во всех этих дисциплинах, и она абсолютно необходима в информатике. Однако курсы по логике почти не предлагаются отдельно, и это затрудняет для студентов освоение материала и получение более качественных рабочих мест.</p>
-<p>Этот курс — это базовое введение в логику. Он предназначен в первую очередь для студентов вузов, но им также успешно пользуются мотивированные старшеклассники и профессионалы, желающие улучшить свои навыки логического мышления.</p>
-<p>Есть только два предварительных требования.
-Курс предполагает, что студент понимает, что такое множества и операции над ними (объединение, пересечение, дополнение).
-Также предполагается уверенное владение символической математикой на уровне школьной алгебры.
-Больше ничего не требуется.</p>
-<p>В этой главе представлен обзор курса.
-Мы начнём с изучения основных элементов логики — логических высказываний, логического следования и логических доказательств. Затем рассмотрим проблемы, возникающие при использовании естественного языка, и то, как символическая логика помогает их преодолеть.
-И наконец, мы обсудим автоматизацию логических рассуждений и компьютерные приложения, которые становятся возможными благодаря этому.</p>
+<h1>Упражнения к главе 1<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="Ex_1_1_Evaluation.html"><span class="std std-doc">Упражнение 1.1</span></a></p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -442,20 +431,24 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro.html"
+       href="1_7_Reading_Guide.html"
        title="предыдущая страница">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">назад</p>
-        <p class="prev-next-title">Добро пожаловать на курс «Введение в логику»!</p>
+        <p class="prev-next-title">1.7 Руководство по чтению</p>
       </div>
     </a>
     <a class="right-next"
-       href="1_2_Logical_Sentences.html"
+       href="Ex_1_1_Evaluation.html"
        title="следующая страница">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">вперёд</p>
-        <p class="prev-next-title">1.2 Логические высказывания</p>
+        <p class="prev-next-title">jupytext:
+formats: «ipynb,md»
+kernelspec:
+name: python3
+display_name: Python 3</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
