@@ -62,15 +62,9 @@ kernelspec:
 
 Предложения в таблице ниже описывают некоторые отношения между девочками, с указанием того, являются ли они истинными или ложными в мире, изображённом в первой таблице. Для каждого из предложений укажите, истинно оно или ложно в описанном выше мире.
 
-Ане нравится Галя.  
-Гале не нравится Аня.  
-Ане нравится Вика или Галя.  
-Ане нравится Вика и Галя.  
-Ане не нравится ни Вика, ни Галя. 
-
 ```{code-cell} python3
-import ipywidgets as widgets
-from IPython.display import display, HTML, clear_output
+:tags: [remove-input]
+from IPython.display import display, HTML, Javascript
 
 # Утверждения и правильные ответы
 statements = [
@@ -81,59 +75,52 @@ statements = [
     ("Ане не нравится ни Вика, ни Галя.", False),
 ]
 
-# Сохраняем элементы, чтобы потом обновить
-question_widgets = []
-
-# Функция для создания одного блока
+# Создаём HTML с кнопками и проверками
 def create_interactive_question(text, correct):
-    label = widgets.HTML(value=f"<b>{text}</b>")
-    buttons = widgets.ToggleButtons(
-        options=["Истина", "Ложь"],
-        description="Ваш ответ:",
-        button_style=''
-    )
-    feedback = widgets.Output()
-    answer_output = widgets.Output()  # Здесь появится правильный ответ
+    return f"""
+    <p>{text}</p>
+    <button class="answer-button" onclick="checkAnswer('{correct}', '{text}')">Истина</button>
+    <button class="answer-button" onclick="checkAnswer('{not correct}', '{text}')">Ложь</button>
+    <div id="result_{text}" style="margin-top: 10px;"></div>
 
-    def check_answer(change):
-        with feedback:
-            clear_output()
-            user_answer = change['new'] == "Истина"
-            if user_answer == correct:
-                display(HTML("<span style='color: green;'>✔️ Верно!</span>"))
-            else:
-                display(HTML("<span style='color: red;'>❌ Неверно.</span>"))
-
-    buttons.observe(check_answer, names='value')
+    <style>
+    .answer-button {{
+        background-color: #f0f0f0;
+        color: #333;
+        border: 1px solid #ccc;
+        padding: 8px 16px;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+        transition: background-color 0.3s;
+        height: 35px;
+    }}
     
-    container = widgets.VBox([label, buttons, feedback, answer_output])
-    question_widgets.append((correct, answer_output))
-    display(container)
-    display(HTML("<hr>"))
+    .answer-button:hover {{
+        background-color: #e0e0e0;
+    }}
+    </style>
 
-# Кнопка для показа правильных ответов
-def show_answers(btn):
-    for correct, output in question_widgets:
-        with output:
-            clear_output()
-            display(HTML(f"<i>Правильный ответ: {'Истина' if correct else 'Ложь'}</i>"))
+    <script>
+    function checkAnswer(answer, questionText) {{
+        var resultDiv = document.getElementById('result_' + questionText);
+        var answerDiv = document.getElementById('answer_' + questionText);
+        if (answer === 'True') {{
+            resultDiv.innerHTML = "<span style='color: green;'>✔️ Верно!</span>";
+        }} else {{
+            resultDiv.innerHTML = "<span style='color: red;'>❌ Неверно.</span>";
+        }}
+    }}
+    </script>
+    <hr>
+    """
 
-show_button = widgets.Button(
-    description="Показать правильные ответы",
-    button_style="info"
-)
-show_button.on_click(show_answers)
-
-
-# Генерация вопросов
+# Составляем HTML для всех утверждений
+questions_html = ""
 for text, correct in statements:
-    create_interactive_question(text, correct)
+    questions_html += create_interactive_question(text, correct)
 
-# Отображение кнопки
-display(show_button)
+# Отображаем вопросы
+display(HTML(questions_html))
 ```
-
-
-
-Удачи!
-
