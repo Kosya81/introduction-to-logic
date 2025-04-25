@@ -33,6 +33,9 @@ html:
 launch_buttons:
   binderhub_url: "https://mybinder.org"
   thebe: true
+  repository_url: https://github.com/executablebooks/jupyter-book
+
+use_thebe: true
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

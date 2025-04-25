@@ -1,3 +1,15 @@
+---
+jupytext:
+  text_representation:
+    format_name: myst
+    format_version: '0.13'
+    jupytext_version: 1.14.4
+kernelspec:
+  name: python3
+  display_name: Python 3
+  language: python
+---
+
 # Упражнение 1.1. Оценка
 
 Это упражнение посвящено межличностным отношениям в небольшом женском клубе. В клубе всего четыре участницы — Аня, Бэлла, Вика и Галя; и существует только один тип бинарного отношения — «нравится». В таблице ниже показано, кто кому нравится. Галочка в ячейке таблицы означает, что девушка, имя которой указано в начале строки, испытывает симпатию к девушке, имя которой указано в заголовке столбца; отсутствие галочки означает, что симпатии нет.
@@ -56,7 +68,7 @@
 Ане нравится Вика и Галя.  
 Ане не нравится ни Вика, ни Галя. 
 
-```{code} ipython3
+```{code-cell} python3
 import ipywidgets as widgets
 from IPython.display import display, HTML, clear_output
 
@@ -120,6 +132,7 @@ for text, correct in statements:
 # Отображение кнопки
 display(show_button)
 ```
+
 
 
 Удачи!
