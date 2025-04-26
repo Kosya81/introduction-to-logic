@@ -1,0 +1,176 @@
+Traceback (most recent call last):
+  File "C:\Users\Kosya\PycharmProjects\IntroductionToLogic\.venv\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\Kosya\PycharmProjects\IntroductionToLogic\.venv\lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\Kosya\PycharmProjects\IntroductionToLogic\.venv\lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\Kosya\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "C:\Users\Kosya\PycharmProjects\IntroductionToLogic\.venv\lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\Kosya\PycharmProjects\IntroductionToLogic\.venv\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Kosya\PycharmProjects\IntroductionToLogic\.venv\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from IPython.display import display, HTML
+
+# Утверждения и правильные ответы
+statements = [
+    ("Ане нравится кто-то, кому нравится она сама.", True),
+    ("Ане нравятся все, кто нравится Бэлле.", False),
+    ("Вике нравятся все, кому она нравится.", True),
+    ("Есть кто-то, кому все нравятся.", False),
+    ("Каждому кто-то нравится.", True),
+]
+
+# Генерация безопасных id
+def make_safe_id(text):
+    safe = text.replace(' ', '_').replace('.', '').replace(',', '').replace('?', '').replace('!', '').replace('–', '-')
+    return safe
+
+# Генерируем HTML
+questions_html = """
+<style>
+.questions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.question-block {
+    flex: 1 1 45%;
+    min-width: 280px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fdfdfd;
+}
+
+.question-text {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.answer-button {
+    background-color: #f9f9f9;
+    color: #333;
+    border: 1px solid #bbb;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    width: 80px;
+    height: 32px;
+    text-align: center;
+    transition: background-color 0.3s, border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.answer-button:hover {
+    background-color: #efefef;
+    border-color: #999;
+}
+
+.answer-button.correct {
+    background-color: #c8e6c9;
+    border-color: #4caf50;
+    color: #2e7d32;
+}
+
+.answer-button.incorrect {
+    background-color: #ffcdd2;
+    border-color: #f44336;
+    color: #c62828;
+}
+
+.answer-button.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.result-text {
+    font-size: 14px;
+    min-height: 20px;
+}
+</style>
+
+<div class="questions-container">
+"""
+
+# Теперь аккуратно добавляем каждый вопрос
+for text, correct in statements:
+    safe_id = make_safe_id(text)
+    escaped_text = html.escape(text)
+
+    question_block = f"""
+    <div class="question-block" id="block_{safe_id}">
+        <p class="question-text">{escaped_text}</p>
+        <div class="buttons">
+            <button class="answer-button" onclick="checkAnswer('{safe_id}', true, this)">Истина</button>
+            <button class="answer-button" onclick="checkAnswer('{safe_id}', false, this)">Ложь</button>
+        </div>
+        <div id="result_{safe_id}" class="result-text"></div>
+    </div>
+    """
+    questions_html += question_block
+
+# Закрываем контейнер
+questions_html += "</div>"
+
+# Теперь добавляем JavaScript ОТДЕЛЬНО
+questions_html += """
+<script>
+function checkAnswer(safeId, isUserAnswerTrue, clickedButton) {
+    var block = document.getElementById('block_' + safeId);
+    var buttons = block.querySelectorAll('.answer-button');
+    var resultDiv = document.getElementById('result_' + safeId);
+
+    // Отключаем все кнопки
+    buttons.forEach(function(btn) {
+        btn.classList.add('disabled');
+    });
+
+    // Проверяем правильность ответа
+    var correctAnswer = (clickedButton.innerText === "Истина") ? (clickedButton.getAttribute('onclick').includes('true')) : (clickedButton.getAttribute('onclick').includes('false'));
+    
+    if (isUserAnswerTrue.toString() === correctAnswer.toString()) {
+        clickedButton.classList.add('correct');
+        resultDiv.innerHTML = "<span style='color: green;'>✔️ Верно!</span>";
+    } else {
+        clickedButton.classList.add('incorrect');
+        resultDiv.innerHTML = "<span style='color: red;'>❌ Неверно.</span>";
+    }
+}
+</script>
+"""
+
+# Отображаем
+display(HTML(questions_html))
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[1], line 95[0m
+[0;32m     93[0m [38;5;28;01mfor[39;00m text, correct [38;5;129;01min[39;00m statements:
+[0;32m     94[0m     safe_id [38;5;241m=[39m make_safe_id(text)
+[1;32m---> 95[0m     escaped_text [38;5;241m=[39m [43mhtml[49m[38;5;241m.[39mescape(text)
+[0;32m     97[0m     question_block [38;5;241m=[39m [38;5;124mf[39m[38;5;124m"""[39m
+[0;32m     98[0m [38;5;124m    <div class=[39m[38;5;124m"[39m[38;5;124mquestion-block[39m[38;5;124m"[39m[38;5;124m id=[39m[38;5;124m"[39m[38;5;124mblock_[39m[38;5;132;01m{[39;00msafe_id[38;5;132;01m}[39;00m[38;5;124m"[39m[38;5;124m>[39m
+[0;32m     99[0m [38;5;124m        <p class=[39m[38;5;124m"[39m[38;5;124mquestion-text[39m[38;5;124m"[39m[38;5;124m>[39m[38;5;132;01m{[39;00mescaped_text[38;5;132;01m}[39;00m[38;5;124m</p>[39m
+[1;32m   (...)[0m
+[0;32m    105[0m [38;5;124m    </div>[39m
+[0;32m    106[0m [38;5;124m    [39m[38;5;124m"""[39m
+[0;32m    107[0m     questions_html [38;5;241m+[39m[38;5;241m=[39m question_block
+
+[1;31mNameError[0m: name 'html' is not defined
+
