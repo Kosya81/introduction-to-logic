@@ -14,49 +14,51 @@ kernelspec:
 
 Это упражнение посвящено межличностным отношениям в небольшом женском клубе. В клубе всего четыре участницы — Аня, Бэлла, Вика и Галя; и существует только один тип бинарного отношения — «нравится». В таблице ниже показано, кто кому нравится. Галочка в ячейке таблицы означает, что девушка, имя которой указано в начале строки, испытывает симпатию к девушке, имя которой указано в заголовке столбца; отсутствие галочки означает, что симпатии нет.
 
-<div style="text-align: center;">
-  <div style="display: inline-block;">
-    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Аня</th>
-          <th>Бэлла</th>
-          <th>Вика</th>
-          <th>Галя</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Аня</td>
-          <td></td>
-          <td>✔️</td>
-          <td>✔️</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Бэлла</td>
-          <td></td>
-          <td></td>
-          <td>✔️</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Вика</td>
-          <td>✔️</td>
-          <td>✔️</td>
-          <td></td>
-          <td>✔️</td>
-        </tr>
-        <tr>
-          <td>Галя</td>
-          <td></td>
-          <td>✔️</td>
-          <td>✔️</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+<div class="table-container">
+  <div style="text-align: center;">
+    <div style="display: inline-block;">
+      <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Аня</th>
+            <th>Бэлла</th>
+            <th>Вика</th>
+            <th>Галя</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Аня</td>
+            <td></td>
+            <td>✔️</td>
+            <td>✔️</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Бэлла</td>
+            <td></td>
+            <td></td>
+            <td>✔️</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Вика</td>
+            <td>✔️</td>
+            <td>✔️</td>
+            <td></td>
+            <td>✔️</td>
+          </tr>
+          <tr>
+            <td>Галя</td>
+            <td></td>
+            <td>✔️</td>
+            <td>✔️</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
@@ -78,11 +80,11 @@ statements = [
 # Создаём HTML с кнопками и проверками
 def create_interactive_question(text, correct):
     return f"""
-    <div class="question-block">
+    <div class="question-block" data-correct-answer="{str(correct).lower()}">
         <p class="question-text">{text}</p>
         <div class="buttons">
-            <button class="answer-button" onclick="checkAnswer('{correct}', '{text}')">Истина</button>
-            <button class="answer-button" onclick="checkAnswer('{not correct}', '{text}')">Ложь</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('{correct}', '{text}')">Истина</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('{not correct}', '{text}')">Ложь</button>
         </div>
         <div id="result_{text}" class="result-text"></div>
     </div>
@@ -90,78 +92,30 @@ def create_interactive_question(text, correct):
 
 # Составляем HTML для всех утверждений
 questions_html = """
-<style>
-.questions-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Отступ между блоками */
-}
-
-.question-block {
-    flex: 1 1 45%; /* Две колонки */
-    min-width: 300px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: #fdfdfd;
-}
-
-.question-text {
-    font-size: 16px;
-    margin-bottom: 8px;
-}
-
-.buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 8px;
-}
-
-.answer-button {
-    background-color: #f9f9f9;
-    color: #333;
-    border: 1px solid #bbb;
-    padding: 4px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 13px;
-    width: 80px;
-    height: 32px;
-    text-align: center;
-    transition: background-color 0.3s, border-color 0.3s;
-    box-sizing: border-box;
-}
-
-.answer-button:hover {
-    background-color: #efefef;
-    border-color: #999;
-}
-
-.result-text {
-    font-size: 14px;
-    min-height: 20px;
-}
-</style>
-
-<script>
-function checkAnswer(answer, questionText) {
-    var resultDiv = document.getElementById('result_' + questionText);
-    if (answer === 'True') {
-        resultDiv.innerHTML = "<span style='color: green;'>✔️ Верно!</span>";
-    } else {
-        resultDiv.innerHTML = "<span style='color: red;'>❌ Неверно.</span>";
-    }
-}
-</script>
-
 <div class="questions-container">
 """
 
 for text, correct in statements:
     questions_html += create_interactive_question(text, correct)
 
-questions_html += "</div>"
+questions_html += """
+</div>
+<div class="exercise-stats">
+    <div class="stats-text">Правильных ответов: <span id="correct-count">0</span> из 5</div>
+    <div class="buttons-container">
+        <button class="show-answers-button" onclick="exerciseManager.showAnswers()">Показать ответы</button>
+        <button class="reset-button" onclick="exerciseManager.reset()">Сбросить ответы</button>
+    </div>
+</div>
+"""
+
+# Инициализируем менеджер упражнений
+init_script = f"""
+<script>
+    exerciseManager.init({statements});
+</script>
+"""
 
 # Отображаем вопросы
-display(HTML(questions_html))
+display(HTML(questions_html + init_script))
 ```

@@ -17,6 +17,11 @@ sphinx:
 html_theme_options:
   extra_css_files:
     - _static/custom.css
+    - _static/exercises.css
+  extra_js_files:
+    - _static/exercises.js
+    - _static/scripts/bootstrap.js
+    - _static/scripts/pydata-sphinx-theme.js
 
 # Extra files to be copied to the build directory
 html_extra_path:
@@ -29,6 +34,9 @@ html:
   use_repository_button: true
   extra_css:
     - _static/custom.css
+    - _static/exercises.css
+  extra_js:
+    - _static/exercises.js
 
 launch_buttons:
   binderhub_url: "https://mybinder.org"

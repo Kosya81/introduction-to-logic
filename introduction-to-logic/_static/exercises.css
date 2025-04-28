@@ -1,0 +1,251 @@
+/* Стили для обертки упражнения */
+.exercise-wrapper {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Стили для фиксированной секции */
+body .bd-main .bd-content .fixed-section {
+    position: fixed !important;
+    top: 80px !important;
+    background: white !important;
+    z-index: 2000 !important;
+    padding: 5px 0;
+    margin: 10px 0;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    max-width: inherit;
+}
+
+/* Добавляем отступ для контента под фиксированной секцией */
+body .bd-main .bd-content .fixed-section + * {
+    margin-top: 400px;
+}
+
+.scrollable-content {
+    padding-top: 20px;
+}
+
+/* Стили для контейнера упражнений */
+.exercise-stats {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.stats-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Стили для таблицы */
+.table-container {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px 0;
+    position: sticky;
+    top: 150px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.table-container th, .table-container td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.table-container th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+/* Стили для контейнера кнопок */
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+/* Стили для кнопок действий */
+.show-answers-button, .reset-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    color: white;
+    min-width: 120px;
+}
+
+.show-answers-button {
+    background-color: #5c6bc0; /* Спокойный синий */
+}
+
+.show-answers-button:hover {
+    background-color: #3949ab;
+}
+
+.reset-button {
+    background-color: #78909c; /* Спокойный серый */
+}
+
+.reset-button:hover {
+    background-color: #546e7a;
+}
+
+/* Стили для контейнера вопросов */
+.questions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Стили для блока вопроса */
+.question-block {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.question-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.question-text {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Стили для кнопок ответов */
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.answer-button {
+    flex: 1;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #dee2e6;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.answer-button:hover:not(:disabled) {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+.answer-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.answer-button.correct {
+    background-color: #66bb6a; /* Спокойный зеленый */
+    color: white;
+    border-color: #66bb6a;
+}
+
+.answer-button.incorrect {
+    background-color: #ef5350; /* Спокойный красный */
+    color: white;
+    border-color: #ef5350;
+}
+
+/* Стили для результата */
+.result-text {
+    font-size: 14px;
+    min-height: 20px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Адаптивность для широких экранов */
+@media (min-width: 1200px) {
+    body .bd-main .bd-content .fixed-section {
+        top: 400px !important;
+    }
+}
+
+/* Адаптивность для средних экранов */
+@media (min-width: 992px) and (max-width: 1199px) {
+    body .bd-main .bd-content .fixed-section {
+        top: 300px !important;
+    }
+}
+
+/* Адаптивность для планшетов */
+@media (min-width: 768px) and (max-width: 991px) {
+    body .bd-main .bd-content .fixed-section {
+        top: 200px !important;
+    }
+}
+
+/* Адаптивность для узких экранов */
+@media (max-width: 767px) {
+    .questions-container {
+        gap: 15px;
+    }
+    
+    .question-block {
+        padding: 15px;
+    }
+    
+    .exercise-stats {
+        margin: 20px -15px;
+        border-radius: 0;
+    }
+    
+    .buttons-container {
+        flex-direction: column;
+    }
+    
+    .show-answers-button, .reset-button {
+        width: 100%;
+    }
+
+    .table-container {
+        margin: 20px -15px;
+        border-radius: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body .bd-main .bd-content .fixed-section {
+        position: static !important;
+        margin: 0;
+        padding: 0;
+        width: auto;
+    }
+
+    body .bd-main .bd-content .fixed-section + * {
+        margin-top: 0;
+    }
+} 
