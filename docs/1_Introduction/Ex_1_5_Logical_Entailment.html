@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ru" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Упражнение 1.5 &#8212; Введение в логику</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b0fa5eb9" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercises.css?v=3c846fab" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=576a2c22"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=9bfe3ffa"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_Introduction/Ex_1_5_Logical_Entailment';</script>
+    <script src="../_static/exercises.js?v=5dd448e4"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="prev" title="Упражнение 1.4" href="Ex_1_4_Satisfaction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ru"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Перейти к основному содержанию</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/klingon.jpeg" class="logo__image only-light" alt="Введение в логику - Home"/>
+    <script>document.write(`<img src="../_static/klingon.jpeg" class="logo__image only-dark" alt="Введение в логику - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Поиск</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Добро пожаловать на курс «Введение в логику»!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_1_Introduction.html">1.1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_Logical_Sentences.html">1.2 Логические высказывания</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_Logical_Entailment.html">1.3 Логическое следование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_Logical_Proofs.html">1.4 Логические доказательства</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_5_Symbolic_Logic.html">1.5 Символическая логика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_6_Automation.html">1.6 Автоматизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_7_Reading_Guide.html">1.7 Руководство по чтению</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Exercises.html">Упражнения к главе 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ex_1_1_Evaluation.html">Упражнение 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ex_1_2_Evaluation.html">Упражнение 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ex_1_3_Evaluation.html">Упражнение 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ex_1_4_Satisfaction.html">Упражнение 1.4</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Упражнение 1.5</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/1_Introduction/Ex_1_5_Logical_Entailment.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Исходный репозиторий"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_Introduction/Ex_1_5_Logical_Entailment.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Открыть вопрос"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Загрузите эту страницу">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/1_Introduction/Ex_1_5_Logical_Entailment.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Скачать файл записной книжки"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/1_Introduction/Ex_1_5_Logical_Entailment.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Скачать исходный файл"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Распечатать в PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Полноэкранный режим"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="светлая/темная" aria-label="светлая/темная" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Упражнение 1.5</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Упражнение 1.5<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h1>
+<p>Рассмотрим следующие посылки о состоянии нашего мира:</p>
+<p style="align: center; padding-left: 25%;">
+<i>
+Гале нравится Вика.<br>
+Ане <b>не</b> нравится Галя.<br>
+Гале <b>не</b> нравится Аня.<br>
+Бэлле нравится либо Вика, либо Галя.<br>
+Ане нравятся все, кто нравится Бэлле.<br>
+Вике нравятся все, кто нравится ей.<br>
+Никто не нравится сам себе.
+</i>
+</p>
+<p>Существует всего четыре состояния мира, которые удовлетворяют этим утверждениям. Они показаны ниже.</p>
+<div style="display: flex; justify-content: space-between; gap: 20px;">
+<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Аня</th>
+      <th>Бэлла</th>
+      <th>Вика</th>
+      <th>Галя</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Аня</td>
+      <td></td>
+      <td></td>
+      <td>✔️</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Бэлла</td>
+      <td></td>
+      <td></td>
+      <td>✔️</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Вика</td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td></td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td>Галя</td>
+      <td></td>
+      <td></td>
+      <td>✔️</td>
+      <td></td>
+  </tbody>
+</table>
+<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Аня</th>
+      <th>Бэлла</th>
+      <th>Вика</th>
+      <th>Галя</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Аня</td>
+      <td></td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Бэлла</td>
+      <td></td>
+      <td></td>
+      <td>✔️</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Вика</td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td></td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td>Галя</td>
+      <td></td>
+      <td></td>
+      <td>✔️</td>
+      <td></td>
+  </tbody>
+</table>
+</div>
+<div style="display: flex; justify-content: space-between; gap: 20px;">
+<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Аня</th>
+      <th>Бэлла</th>
+      <th>Вика</th>
+      <th>Галя</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Аня</td>
+      <td></td>
+      <td></td>
+      <td>✔️</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Бэлла</td>
+      <td></td>
+      <td></td>
+      <td>✔️</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Вика</td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td></td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td>Галя</td>
+      <td></td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td></td>
+  </tbody>
+</table>
+<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Аня</th>
+      <th>Бэлла</th>
+      <th>Вика</th>
+      <th>Галя</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Аня</td>
+      <td></td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Бэлла</td>
+      <td></td>
+      <td></td>
+      <td>✔️</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Вика</td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td></td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td>Галя</td>
+      <td></td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td></td>
+  </tbody>
+</table>
+</div>
+<p>Для каждого из следующих предложений укажите, вытекает ли оно логически из приведённых выше посылок.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div class="questions-container">
+
+    <div class="question-block" data-correct-answer="false">
+        <p class="question-text">Ане нравится Бэлла или Бэлле нравится Аня.</p>
+        <div class="buttons">
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('False', 'Ане нравится Бэлла или Бэлле нравится Аня.')">Истина</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('True', 'Ане нравится Бэлла или Бэлле нравится Аня.')">Ложь</button>
+        </div>
+        <div id="result_Ане нравится Бэлла или Бэлле нравится Аня." class="result-text"></div>
+    </div>
+    
+    <div class="question-block" data-correct-answer="false">
+        <p class="question-text">Кто-то нравится самой себе.</p>
+        <div class="buttons">
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('False', 'Кто-то нравится самой себе.')">Истина</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('True', 'Кто-то нравится самой себе.')">Ложь</button>
+        </div>
+        <div id="result_Кто-то нравится самой себе." class="result-text"></div>
+    </div>
+    
+    <div class="question-block" data-correct-answer="true">
+        <p class="question-text">Каждому кто-то нравится.</p>
+        <div class="buttons">
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('True', 'Каждому кто-то нравится.')">Истина</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('False', 'Каждому кто-то нравится.')">Ложь</button>
+        </div>
+        <div id="result_Каждому кто-то нравится." class="result-text"></div>
+    </div>
+    
+</div>
+<div class="exercise-stats">
+    <div class="stats-text">Правильных ответов: <span id="correct-count">0</span> из 5</div>
+    <div class="buttons-container">
+        <button class="show-answers-button" onclick="exerciseManager.showAnswers()">Показать ответы</button>
+        <button class="reset-button" onclick="exerciseManager.reset()">Сбросить ответы</button>
+    </div>
+</div>
+
+<script>
+    exerciseManager.init([('Ане нравится Бэлла или Бэлле нравится Аня.', False), ('Кто-то нравится самой себе.', False), ('Каждому кто-то нравится.', True)]);
+</script>
+</div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./1_Introduction"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Ex_1_4_Satisfaction.html"
+       title="предыдущая страница">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">назад</p>
+        <p class="prev-next-title">Упражнение 1.4</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Автор: Michael Genesereth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Копирайт 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
