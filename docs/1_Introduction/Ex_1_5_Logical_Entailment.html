@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b0fa5eb9" />
@@ -61,7 +61,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '1_Introduction/Ex_1_5_Logical_Entailment';</script>
-    <script src="../_static/exercises.js?v=5dd448e4"></script>
+    <script src="../_static/exercises.js?v=43c47d8a"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="prev" title="Упражнение 1.4" href="Ex_1_4_Satisfaction.html" />
@@ -647,8 +647,8 @@ document.write(`
     <div class="question-block" data-correct-answer="false">
         <p class="question-text">Ане нравится Бэлла или Бэлле нравится Аня.</p>
         <div class="buttons">
-            <button class="answer-button" onclick="exerciseManager.checkAnswer('False', 'Ане нравится Бэлла или Бэлле нравится Аня.')">Истина</button>
-            <button class="answer-button" onclick="exerciseManager.checkAnswer('True', 'Ане нравится Бэлла или Бэлле нравится Аня.')">Ложь</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('False', true, 'Ане нравится Бэлла или Бэлле нравится Аня.')">Истина</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('False', false, 'Ане нравится Бэлла или Бэлле нравится Аня.')">Ложь</button>
         </div>
         <div id="result_Ане нравится Бэлла или Бэлле нравится Аня." class="result-text"></div>
     </div>
@@ -656,8 +656,8 @@ document.write(`
     <div class="question-block" data-correct-answer="false">
         <p class="question-text">Кто-то нравится самой себе.</p>
         <div class="buttons">
-            <button class="answer-button" onclick="exerciseManager.checkAnswer('False', 'Кто-то нравится самой себе.')">Истина</button>
-            <button class="answer-button" onclick="exerciseManager.checkAnswer('True', 'Кто-то нравится самой себе.')">Ложь</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('False', true, 'Кто-то нравится самой себе.')">Истина</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('False', false, 'Кто-то нравится самой себе.')">Ложь</button>
         </div>
         <div id="result_Кто-то нравится самой себе." class="result-text"></div>
     </div>
@@ -665,15 +665,15 @@ document.write(`
     <div class="question-block" data-correct-answer="true">
         <p class="question-text">Каждому кто-то нравится.</p>
         <div class="buttons">
-            <button class="answer-button" onclick="exerciseManager.checkAnswer('True', 'Каждому кто-то нравится.')">Истина</button>
-            <button class="answer-button" onclick="exerciseManager.checkAnswer('False', 'Каждому кто-то нравится.')">Ложь</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('True', true, 'Каждому кто-то нравится.')">Истина</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('True', false, 'Каждому кто-то нравится.')">Ложь</button>
         </div>
         <div id="result_Каждому кто-то нравится." class="result-text"></div>
     </div>
     
 </div>
 <div class="exercise-stats">
-    <div class="stats-text">Правильных ответов: <span id="correct-count">0</span> из 5</div>
+    <div class="stats-text">Правильных ответов: <span id="correct-count">0</span> из 3</div>
     <div class="buttons-container">
         <button class="show-answers-button" onclick="exerciseManager.showAnswers()">Показать ответы</button>
         <button class="reset-button" onclick="exerciseManager.reset()">Сбросить ответы</button>

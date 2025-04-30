@@ -15,9 +15,9 @@ class ExerciseManager {
         this.initialized = true;
     }
 
-    checkAnswer(answer, questionText) {
+    checkAnswer(answer, clicked_btn, questionText) {
         const resultDiv = document.getElementById('result_' + questionText);
-        const isCorrect = answer === 'True';
+        const isCorrect = (clicked_btn ? answer === 'True' : answer === 'False');
         
         // Сохраняем ответ
         this.answers[questionText] = isCorrect;
@@ -30,10 +30,12 @@ class ExerciseManager {
         const buttons = resultDiv.parentNode.querySelectorAll('.answer-button');
         buttons.forEach(button => {
             button.disabled = true;
-            if (button.textContent === (isCorrect ? 'Истина' : 'Ложь')) {
-                button.classList.add('correct');
-            } else {
-                button.classList.add('incorrect');
+            if (button.textContent === (clicked_btn ? 'Истина' : 'Ложь')) {
+                if (isCorrect) {
+                    button.classList.add('correct');
+                } else {
+                    button.classList.add('incorrect');
+                }
             }
         });
         

@@ -219,8 +219,8 @@ def create_interactive_question(text, correct):
     <div class="question-block" data-correct-answer="{str(correct).lower()}">
         <p class="question-text">{text}</p>
         <div class="buttons">
-            <button class="answer-button" onclick="exerciseManager.checkAnswer('{correct}', '{text}')">Истина</button>
-            <button class="answer-button" onclick="exerciseManager.checkAnswer('{not correct}', '{text}')">Ложь</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('{correct}', true, '{text}')">Истина</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('{correct}', false, '{text}')">Ложь</button>
         </div>
         <div id="result_{text}" class="result-text"></div>
     </div>
@@ -237,7 +237,7 @@ for text, correct in statements:
 questions_html += """
 </div>
 <div class="exercise-stats">
-    <div class="stats-text">Правильных ответов: <span id="correct-count">0</span> из 5</div>
+    <div class="stats-text">Правильных ответов: <span id="correct-count">0</span> из 3</div>
     <div class="buttons-container">
         <button class="show-answers-button" onclick="exerciseManager.showAnswers()">Показать ответы</button>
         <button class="reset-button" onclick="exerciseManager.reset()">Сбросить ответы</button>

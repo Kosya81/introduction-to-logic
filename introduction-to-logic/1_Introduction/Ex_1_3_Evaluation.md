@@ -83,8 +83,8 @@ def create_interactive_question(text, correct):
     <div class="question-block" data-correct-answer="{str(correct).lower()}">
         <p class="question-text">{text}</p>
         <div class="buttons">
-            <button class="answer-button" onclick="exerciseManager.checkAnswer('{correct}', '{text}')">Истина</button>
-            <button class="answer-button" onclick="exerciseManager.checkAnswer('{not correct}', '{text}')">Ложь</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('{correct}', true, '{text}')">Истина</button>
+            <button class="answer-button" onclick="exerciseManager.checkAnswer('{correct}', false, '{text}')">Ложь</button>
         </div>
         <div id="result_{text}" class="result-text"></div>
     </div>
