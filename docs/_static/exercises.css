@@ -55,6 +55,20 @@ body .bd-main .bd-content .fixed-section + * {
     z-index: 100;
 }
 
+ .table-container-lecture {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+ }
+
+ .table-wrapper {
+    flex: 1 1 45%;
+    min-width: 300px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
+
 .table-container table {
     width: 100%;
     border-collapse: collapse;
@@ -237,6 +251,10 @@ body .bd-main .bd-content .fixed-section + * {
         border-radius: 0;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+    }
+
+    .table-wrapper {
+      flex: 1 1 100%;
     }
 
     body .bd-main .bd-content .fixed-section {

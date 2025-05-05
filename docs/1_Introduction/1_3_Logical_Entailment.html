@@ -32,11 +32,11 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b0fa5eb9" />
-    <link rel="stylesheet" type="text/css" href="../_static/exercises.css?v=3c846fab" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercises.css?v=d7ff2f83" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -398,169 +398,175 @@ document.write(`
 <h1>1.3 Логическое следование<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h1>
 <p>Как только мы узнаем, какой из возможных миров является правильным, мы можем определить, что некоторые предложения обязательно должны быть истинными, даже если они не указаны явно в исходных предпосылках. Например, в первом мире, который мы рассматривали выше, видно, что Бэлла нравится Вике, хотя нам это прямо не сказано. Точно так же можно понять, что Ане не нравится Бэлла.</p>
 <p>К сожалению, не всегда всё так просто. Хотя логические предложения иногда могут точно определить один конкретный мир среди множества возможных, так бывает не всегда. Иногда набор предложений только частично ограничивает возможные миры. Например, существует четыре различных мира, которые удовлетворяют предложениям из предыдущего раздела.</p>
-<div style="display: flex; justify-content: space-between; gap: 20px;">
-<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Аня</th>
-      <th>Бэлла</th>
-      <th>Вика</th>
-      <th>Галя</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Аня</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Бэлла</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Вика</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td>Галя</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-  </tbody>
-</table>
-<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Аня</th>
-      <th>Бэлла</th>
-      <th>Вика</th>
-      <th>Галя</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Аня</td>
-      <td></td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Бэлла</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Вика</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td>Галя</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-  </tbody>
-</table>
-</div>
-<div style="display: flex; justify-content: space-between; gap: 20px;">
-<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Аня</th>
-      <th>Бэлла</th>
-      <th>Вика</th>
-      <th>Галя</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Аня</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Бэлла</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Вика</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td>Галя</td>
-      <td></td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-  </tbody>
-</table>
-<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Аня</th>
-      <th>Бэлла</th>
-      <th>Вика</th>
-      <th>Галя</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Аня</td>
-      <td></td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Бэлла</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Вика</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td>Галя</td>
-      <td></td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-  </tbody>
-</table>
+<div class="table-container-lecture">
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Аня</th>
+          <th>Бэлла</th>
+          <th>Вика</th>
+          <th>Галя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Аня</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Бэлла</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Вика</td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+          <td>✔️</td>
+        </tr>
+        <tr>
+          <td>Галя</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Аня</th>
+          <th>Бэлла</th>
+          <th>Вика</th>
+          <th>Галя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Аня</td>
+          <td></td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Бэлла</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Вика</td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+          <td>✔️</td>
+        </tr>
+        <tr>
+          <td>Галя</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Аня</th>
+          <th>Бэлла</th>
+          <th>Вика</th>
+          <th>Галя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Аня</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Бэлла</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Вика</td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+          <td>✔️</td>
+        </tr>
+        <tr>
+          <td>Галя</td>
+          <td></td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Аня</th>
+          <th>Бэлла</th>
+          <th>Вика</th>
+          <th>Галя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Аня</td>
+          <td></td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Бэлла</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Вика</td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+          <td>✔️</td>
+        </tr>
+        <tr>
+          <td>Галя</td>
+          <td></td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+      </tbody>
+    </table>    
+  </div>
 </div>
 <p>В таких ситуациях возникает вопрос: какой мир использовать, чтобы отвечать на вопросы? Хорошая новость заключается в том, что иногда это не имеет значения. Даже если набор предложений не определяет один-единственный мир, некоторые предложения имеют одинаковое значение истинности во <em>всех</em> мирах, удовлетворяющих этим предложениям. И это значение можно использовать при ответе на вопросы.</p>
 <p>Это и есть <em><a class="reference external" href="https://azbyka.ru/otechnik/Spravochniki/slovar-po-logike/191">логическое следование</a></em>. Мы говорим, что набор посылок <em>логически влечёт</em> заключение, если и только если во всех мирах, где истинны посылки, также истинно и заключение.</p>

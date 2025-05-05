@@ -17,90 +17,46 @@
 На правой диаграмме показан другой возможный «мир».
 В нём каждой девушке нравятся ровно две другие, и каждая получает симпатию ровно от двух девушек.
 
-<div style="display: flex; justify-content: space-between; gap: 20px;">
+<div class="table-container-lecture">
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Аня</th>
+          <th>Бэлла</th>
+          <th>Вика</th>
+          <th>Галя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Аня</td><td></td><td></td><td>✔️</td><td></td></tr>
+        <tr><td>Бэлла</td><td></td><td></td><td>✔️</td><td></td></tr>
+        <tr><td>Вика</td><td>✔️</td><td>✔️</td><td></td><td>✔️</td></tr>
+        <tr><td>Галя</td><td></td><td></td><td>✔️</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
 
-<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Аня</th>
-      <th>Бэлла</th>
-      <th>Вика</th>
-      <th>Галя</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Аня</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Бэлла</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Вика</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td>Галя</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-  </tbody>
-</table>
-
-<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Аня</th>
-      <th>Бэлла</th>
-      <th>Вика</th>
-      <th>Галя</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Аня</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Бэлла</td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td>Вика</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-      <td>️</td>
-    </tr>
-    <tr>
-      <td>Галя</td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-  </tbody>
-</table>
-
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Аня</th>
+          <th>Бэлла</th>
+          <th>Вика</th>
+          <th>Галя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Аня</td><td>✔️</td><td></td><td>✔️</td><td></td></tr>
+        <tr><td>Бэлла</td><td></td><td>✔️</td><td></td><td>✔️</td></tr>
+        <tr><td>Вика</td><td>✔️</td><td></td><td>✔️</td><td>️</td></tr>
+        <tr><td>Галя</td><td></td><td>✔️</td><td></td><td>✔️</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 

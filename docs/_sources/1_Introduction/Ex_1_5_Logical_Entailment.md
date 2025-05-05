@@ -28,6 +28,7 @@ kernelspec:
 
 Существует всего четыре состояния мира, которые удовлетворяют этим утверждениям. Они показаны ниже.
 
+<div class="table-container">
 <div style="display: flex; justify-content: space-between; gap: 20px;">
 
 <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
@@ -198,6 +199,7 @@ kernelspec:
   </tbody>
 </table>
 
+</div>
 </div>
 
 Для каждого из следующих предложений укажите, вытекает ли оно логически из приведённых выше посылок.
