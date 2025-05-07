@@ -5,3 +5,4 @@
 - [Упражнение 1.3](Ex_1_3_Evaluation.md)
 - [Упражнение 1.4](Ex_1_4_Satisfaction.md)
 - [Упражнение 1.5](Ex_1_5_Logical_Entailment.md)
+- [Упражнение 1.6](Ex_1_6_Logical_Entailment.md)

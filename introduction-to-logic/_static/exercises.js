@@ -30,7 +30,8 @@ class ExerciseManager {
         const buttons = resultDiv.parentNode.querySelectorAll('.answer-button');
         buttons.forEach(button => {
             button.disabled = true;
-            if (button.textContent === (clicked_btn ? 'Истина' : 'Ложь')) {
+            if ((button.textContent === (clicked_btn ? 'Истина' : 'Ложь')) ||
+                (button.textContent === (clicked_btn ? 'Следует' : 'Не следует'))){
                 if (isCorrect) {
                     button.classList.add('correct');
                 } else {
@@ -53,7 +54,8 @@ class ExerciseManager {
             const questionText = button.closest('.question-block').querySelector('.question-text').textContent;
             const correctAnswer = this.questions.find(q => q[0] === questionText)[1];
             
-            if (button.textContent === (correctAnswer ? 'Истина' : 'Ложь')) {
+            if ((button.textContent === (correctAnswer ? 'Истина' : 'Ложь')) ||
+                (button.textContent === (correctAnswer ? 'Следует' : 'Не следует'))) {
                 button.classList.add('correct');
             } else {
                 button.classList.add('incorrect');
