@@ -14,8 +14,8 @@ kernelspec:
 
 Рассмотрим следующие посылки о состоянии нашего мира:
 
-<p style="align: center; padding-left: 25%;">
-<i>
+<div class="centered-text-container">
+<p>
 Гале нравится Вика.<br>
 Ане <b>не</b> нравится Галя.<br>
 Гале <b>не</b> нравится Аня.<br>
@@ -23,183 +23,185 @@ kernelspec:
 Ане нравятся все, кто нравится Бэлле.<br>
 Вике нравятся все, кто нравится ей.<br>
 Никто не нравится сам себе.
-</i>
 </p>
+</div>
 
 Существует всего четыре состояния мира, которые удовлетворяют этим утверждениям. Они показаны ниже.
 
-<div class="table-container">
-<div style="display: flex; justify-content: space-between; gap: 20px;">
+<div class="table-container-lecture">
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Аня</th>
+          <th>Бэлла</th>
+          <th>Вика</th>
+          <th>Галя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Аня</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Бэлла</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Вика</td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+          <td>✔️</td>
+        </tr>
+        <tr>
+          <td>Галя</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+      </tbody>
+    </table>
+  </div>
 
-<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Аня</th>
-      <th>Бэлла</th>
-      <th>Вика</th>
-      <th>Галя</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Аня</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Бэлла</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Вика</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td>Галя</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-  </tbody>
-</table>
-
-<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Аня</th>
-      <th>Бэлла</th>
-      <th>Вика</th>
-      <th>Галя</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Аня</td>
-      <td></td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Бэлла</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Вика</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td>Галя</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-  </tbody>
-</table>
-
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Аня</th>
+          <th>Бэлла</th>
+          <th>Вика</th>
+          <th>Галя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Аня</td>
+          <td></td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Бэлла</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Вика</td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+          <td>✔️</td>
+        </tr>
+        <tr>
+          <td>Галя</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<div style="display: flex; justify-content: space-between; gap: 20px;">
+<div class="table-container-lecture">
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Аня</th>
+          <th>Бэлла</th>
+          <th>Вика</th>
+          <th>Галя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Аня</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Бэлла</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Вика</td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+          <td>✔️</td>
+        </tr>
+        <tr>
+          <td>Галя</td>
+          <td></td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+      </tbody>
+    </table>
+  </div>
 
-<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Аня</th>
-      <th>Бэлла</th>
-      <th>Вика</th>
-      <th>Галя</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Аня</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Бэлла</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Вика</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td>Галя</td>
-      <td></td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-  </tbody>
-</table>
-
-<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Аня</th>
-      <th>Бэлла</th>
-      <th>Вика</th>
-      <th>Галя</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Аня</td>
-      <td></td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Бэлла</td>
-      <td></td>
-      <td></td>
-      <td>✔️</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Вика</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td>Галя</td>
-      <td></td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td></td>
-  </tbody>
-</table>
-
-</div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Аня</th>
+          <th>Бэлла</th>
+          <th>Вика</th>
+          <th>Галя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Аня</td>
+          <td></td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Бэлла</td>
+          <td></td>
+          <td></td>
+          <td>✔️</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Вика</td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+          <td>✔️</td>
+        </tr>
+        <tr>
+          <td>Галя</td>
+          <td></td>
+          <td>✔️</td>
+          <td>✔️</td>
+          <td></td>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 Для каждого из следующих предложений укажите, вытекает ли оно логически из приведённых выше посылок.

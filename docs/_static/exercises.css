@@ -4,6 +4,18 @@
     min-height: 100vh;
 }
 
+/* Стили для центрированного контейнера с текстом */
+.centered-text-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.centered-text-container p {
+    text-align: left;
+    font-style: italic;
+}
+
 /* Стили для фиксированной секции */
 body .bd-main .bd-content .fixed-section {
     position: fixed !important;
