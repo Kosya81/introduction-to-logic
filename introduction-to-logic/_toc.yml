@@ -4,20 +4,32 @@
 format: jb-book
 root: intro
 chapters:
-- file: 1_Introduction/1_1_Introduction
-- file: 1_Introduction/1_2_Logical_Sentences
-- file: 1_Introduction/1_3_Logical_Entailment
-- file: 1_Introduction/1_4_Logical_Proofs
-- file: 1_Introduction/1_5_Symbolic_Logic
-- file: 1_Introduction/1_6_Automation
-- file: 1_Introduction/1_7_Reading_Guide
-- file: 1_Introduction/1_Exercises
-- file: 1_Introduction/Ex_1_1_Evaluation
-- file: 1_Introduction/Ex_1_2_Evaluation
-- file: 1_Introduction/Ex_1_3_Evaluation
-- file: 1_Introduction/Ex_1_4_Satisfaction
-- file: 1_Introduction/Ex_1_5_Logical_Entailment
-- file: 1_Introduction/Ex_1_6_Logical_Entailment
-- file: 1_Introduction/Ex_1_7_Logical_Reasoning
-- file: 1_Introduction/Extra_1_Alice
-- file: 1_Introduction/Puzzle_1_Locks
+- title: Введение в логику
+  file: 1_Introduction/1_1_Introduction
+  sections:
+    - file: 1_Introduction/1_2_Logical_Sentences
+    - file: 1_Introduction/1_3_Logical_Entailment
+    - file: 1_Introduction/1_4_Logical_Proofs
+    - file: 1_Introduction/1_5_Symbolic_Logic
+    - file: 1_Introduction/1_6_Automation
+    - file: 1_Introduction/1_7_Reading_Guide
+    - title: Упражнения
+      file: 1_Introduction/1_Exercises
+      sections:
+        - file: 1_Introduction/Ex_1_1_Evaluation
+        - file: 1_Introduction/Ex_1_2_Evaluation
+        - file: 1_Introduction/Ex_1_3_Evaluation
+        - file: 1_Introduction/Ex_1_4_Satisfaction
+        - file: 1_Introduction/Ex_1_5_Logical_Entailment
+        - file: 1_Introduction/Ex_1_6_Logical_Entailment
+        - file: 1_Introduction/Ex_1_7_Logical_Reasoning
+    - title: Дополнительные материалы
+      file: 1_Introduction/1_Extras
+      sections:
+        - file: 1_Introduction/Extra_1_Alice
+        - file: 1_Introduction/Puzzle_1_Locks
+
+- title: Логика высказываний
+  file: 2_Propositional_Logic/2_1_Introduction
+  sections:
+    - file: 2_Propositional_Logic/2_2_Syntax
