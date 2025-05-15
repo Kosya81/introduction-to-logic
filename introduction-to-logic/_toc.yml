@@ -34,3 +34,4 @@ chapters:
   sections:
     - file: 2_Propositional_Logic/2_2_Syntax
     - file: 2_Propositional_Logic/2_3_Semantics
+    - file: 2_Propositional_Logic/2_4_Evaluation
